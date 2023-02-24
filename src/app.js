@@ -160,7 +160,7 @@ app.post("/productpage", async (req, res) => {
 })
 
 app.get("/buyers", (req, res) => {
-    if (req.session.username) {
+    if (req.session.username  != 0) {
         Register.find({}, function(err, result) {
             let descs = [];
             let names = [];
@@ -201,7 +201,7 @@ app.get("/buyers", (req, res) => {
 })
 
 app.get("/sellers", async (req, res) => {
-    if (req.session.username) {
+    if (req.session.username != 0) {
         try {
             const user = await Register.findOne({ username: req.session.username });
 
