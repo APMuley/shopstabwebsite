@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{>head}}
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    {{>navbar}}
+    <!-- end header section -->
+  </div>
+
+<section class="user_profile">
+    <h1>User Info</h1>
+    <br><br>
+    <h5>Username: <p class="info_user">{{users.username}}</p></h5>
+    <br>
+    <h5>Email: <p class="info_user">{{users.email}}</p></h5>
+    <br>
+    <h5>Phone No: <p class="info_user">{{users.phoneNum}}</p></h5>
+    <br><br>
+    <form action="/logout" method="GET">
+      <input type="submit" value="Log Out" name="logout">
+    </form>
+    <br><br>
+    {{#if count}}
+      <div id="page_products">
+      <h2 style="color:#434f78; padding-top:1%">Your Wishlist:</h2>
+      <ol class="product_list">
+        {{#each products}}
+        <li>{{this.wn}}</li>
+        {{/each}}
+      </ol>
+      </div>
+    {{/if}}
+
+    
+</section>
+
+  <!-- info section -->
+  {{>footer}}
+
+  <!-- end info_section -->
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+
+
+
+</body>
+
+</html>

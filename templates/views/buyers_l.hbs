@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{>head}}
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    {{>navbar}}
+    <!-- end header section -->
+  </div>
+
+
+  <!-- product section -->
+
+  <section class="product_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Products For Sale
+        </h2>
+      </div>
+      <div class="row">
+        {{#each products}}
+        <div class="col-sm-6 col-lg-4">
+          <div class="box">
+            <div class="img-box">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                {{this.p_name}}
+              </h5>
+              <div class="product_info">
+                <h5>
+                  Price <span>₹</span> {{this.p_price}}
+                </h5>
+                <p>Sold By: {{this.snames}}</p>
+                <form method="POST" action="/productpage">
+                  <input type="hidden" name="indexvalue" value={{this.product_num}}>
+                  <input type="hidden" name="pnum" value={{this.pnum}}>
+                  <input type="hidden" name="sname" value={{this.snames}}>
+                  <input type="submit" class="btn btn-block btn-login" value="More Info">
+                </form>
+                <form method="POST" action="/wishlist">
+                  <input type="hidden" name="product_name" value={{this.p_name}}>
+                  <input type="hidden" name="product_description" value={{this.p_desc}}>
+                  <input type="hidden" name="product_price" value={{this.p_price}}>
+                  <input type="submit" class="btn btn-block btn-login" value="Add To Wishlist">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  <!-- end product section -->
+
+
+  <!-- info section -->
+  {{>footer}}
+
+  <!-- end info_section -->
+
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+
+
+
+</body>
+
+</html>

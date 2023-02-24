@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{>head}}
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    {{>navbar}}
+    <!-- end header section -->
+  </div>
+
+  <div>
+    <form action="/list" method="POST" id="listing">
+        <h1>Enter Product Details:</h1>
+        <div class="col-md-12 form-group">
+            <label name="product_name">Product Name (Less than 25 Characters):</label>
+            <input name="product_name" type="text" class="form-control" placeholder="Product Name">
+        </div>
+        <div class="col-md-12 form-group">
+            <label name="product_description">Product Description:</label>
+            <input name="product_description" type="text" class="form-control" placeholder="Product Description">
+        </div>
+        <div class="col-md-12 form-group">
+            <label name="product_price">Product Price:</label>
+            <input name="product_price" type="text" class="form-control" placeholder="Product Price">
+        </div>
+
+        <input id="list_your_item" type="submit" class="btn btn-block" value="List Your Item">
+
+    </form>
+  </div>
+
+  <!-- info section -->
+  {{>footer}}
+  <!-- end info_section -->
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+
+
+</body>
+
+</html>
