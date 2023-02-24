@@ -69,17 +69,19 @@ app.post("/wishlist", async (req, res) => {
 
 app.get("/myaccount", async (req, res) => {
     try {
-        if (req.session.username != 0) {
+        if (req.session.username) {
             Register.find({ username: req.session.username }, function (err, docs) {
                 let i = 0;
                 while (docs[i].username != req.session.username) {
                     i++;
                 }
+                
 
                 let user = docs[i];
                 let wn = user.wishlist_name;
                 let wd = user.wishlist_desc;
                 let wp = user.wishlist_price;
+                    
 
                 let products = [];
                 let temp;
@@ -88,6 +90,7 @@ app.get("/myaccount", async (req, res) => {
                     temp = {wn:wn[j], wd:wd[j],wp:wp[j]};
                     products.push(temp);
                 } 
+            
                 
 
                 res.render("myaccount", { users: user, products:products, count:wn.length  })
