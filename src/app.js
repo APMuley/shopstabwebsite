@@ -282,6 +282,7 @@ app.post("/login", async (req, res) => {
             req.session.username = username;
             req.session.save();
             console.log("logged in successfully");
+            console.log(req.session.username);
             res.status(201).render("index");
         } else {
             res.render("login")
