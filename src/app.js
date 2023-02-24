@@ -6,7 +6,6 @@ const hbs = require("hbs");
 
 const session = require("express-session")
 
-require("./db/conn")
 const Register = require("./models/registers");
 const { json } = require("express");
 const { log } = require("console");
