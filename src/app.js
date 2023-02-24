@@ -206,7 +206,7 @@ app.get("/sellers", async (req, res) => {
             const user = await Register.findOne({ username: req.session.username });
 
             let count, names;
-            if (user.product_name.length) {
+            if (user.product_name.length != 0) {
                 count = user.product_name.length;
                 names = user.product_name;
             } else {
