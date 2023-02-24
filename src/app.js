@@ -281,6 +281,7 @@ app.post("/login", async (req, res) => {
         if (user.password === password) {
             req.session.username = username;
             req.session.save();
+            console.log("logged in successfully");
             res.status(201).render("index");
         } else {
             res.render("login")
