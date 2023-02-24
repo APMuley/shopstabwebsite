@@ -16,6 +16,17 @@ const { resolveNaptr } = require("dns");
 
 const port = process.env.PORT || 3000;
 
+mongoose.set('strictQuery', false);
+const connectDB = async() => {
+    try {
+        const conn = await mongoose.connect(process.env.MONGO_URI);
+        console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+        console.log(error);
+        process.exit(1);
+    }
+}
+
 const static_path = path.join(__dirname, "../public");
 const template_path = path.join(__dirname, "../templates/views");
 const partials_path = path.join(__dirname, "../templates/partials");
@@ -277,6 +288,8 @@ app.post("/login", async (req, res) => {
     }
 })
 
+connectDB().then(() => {
 app.listen(port, () => {
     console.log(`Server is running at port no ${port}`);
-});
+})
+})
