@@ -69,7 +69,7 @@ app.post("/wishlist", async (req, res) => {
 
 app.get("/myaccount", async (req, res) => {
     try {
-        if (req.session.username) {
+        if (req.session.username != 0) {
             Register.find({ username: req.session.username }, function (err, docs) {
                 let i = 0;
                 while (docs[i].username != req.session.username) {
