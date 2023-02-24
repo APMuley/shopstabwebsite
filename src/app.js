@@ -13,6 +13,9 @@ const { log } = require("console");
 const { default: mongoose } = require("mongoose");
 const { stringify } = require("querystring");
 const { resolveNaptr } = require("dns");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const port = process.env.PORT || 3000;
 
